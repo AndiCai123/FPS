@@ -1,0 +1,175 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Photon.Pun;
+
+public class Weapon : MonoBehaviourPunCallbacks
+{
+    //public GameObject pistol;
+
+    //public Transform Hip;
+
+    //public float smooth;
+
+    public LineRenderer tracer;
+
+    public MPlayerMovement movement;
+
+
+
+    public bool isFired;
+
+    private float tracerTime = 0.1f;
+
+    public Transform Anchor;
+
+    public float timer;
+
+    private float currentCoolDown;
+
+    public Transform barrel;
+
+    public Gun[] loadout;
+
+    public Transform weaponParent;
+
+    public Transform t_spawn;
+
+    private int currentIndex;
+
+    public GameObject bulletholePrefab;
+
+    public LayerMask canBeShot;
+
+    private GameObject currentWeapon;
+
+    void Start()
+    {
+
+        //tracer.enabled = false;
+    }
+
+    void Update()
+    {
+        if (!photonView.IsMine) return;
+
+        if (Input.GetKeyDown(KeyCode.Alpha1)) { photonView.RPC("Equip", RpcTarget.All, 0); }
+        //if (Input.GetKeyDown(KeyCode.Alpha1)) Equip(0);
+        if (currentWeapon != null)
+        {
+            Anchor = currentWeapon.transform.Find("Anchor");
+            //barrel = currentWeapon.transform.Find("Anchor/Resources/Barrel");
+            //tracer = barrel.GetComponent<LineRenderer>();
+
+            //Hip = currentWeapon.transform.Find("States/Hip");
+
+            //currentWeapon.transform.rotation = Quaternion.Lerp(transform.rotation, Hip.rotation, Time.deltaTime/* * smooth*/);
+
+            Aim(Input.GetMouseButton(1));
+
+            //tracer.useWorldSpace = true;
+
+            if (Input.GetMouseButtonDown(0) && currentCoolDown <=0)
+            {
+                photonView.RPC("Shoot", RpcTarget.All);
+                //Shoot();
+            }
+            currentWeapon.transform.localPosition = Vector3.Lerp(currentWeapon.transform.localPosition, Vector3.zero, Time.deltaTime * 5f);
+            currentWeapon.transform.rotation = Quaternion.Lerp(Anchor.rotation, weaponParent.rotation, Time.deltaTime * 5f/* * smooth*/);
+
+            if (currentCoolDown > 0) currentCoolDown -= Time.deltaTime;
+        
+        }
+
+        /*if (timer < tracerTime)
+        {
+            timer += Time.deltaTime;
+        }
+
+        if(timer >= tracerTime)
+        {
+            if (currentWeapon != null)
+            {
+                tracer.enabled = false;
+            }
+        }*/
+        
+    }
+
+    [PunRPC]
+    public void Equip(int p_ind)
+    {
+        if (currentWeapon != null) Destroy(currentWeapon);
+
+        //Quaternion target_rotation = origin_rotation;
+
+        currentIndex = p_ind;
+
+        GameObject t_newWeapon = Instantiate(loadout[p_ind].prefab, weaponParent.position, weaponParent.rotation, weaponParent) as GameObject;
+        t_newWeapon.transform.localPosition = new Vector3(0,-0.25f,0);
+        t_newWeapon.transform.localEulerAngles = Vector3.zero;
+
+        currentWeapon = t_newWeapon;
+
+    }
+
+    void Aim(bool isAiming)
+    {
+        Transform t_anchor = currentWeapon.transform.Find("Anchor");
+        Transform t_ads = currentWeapon.transform.Find("States/ADS");
+        Transform t_hip = currentWeapon.transform.Find("States/Hip");
+        if (isAiming)
+        {
+            t_anchor.position = Vector3.Lerp(t_anchor.position, t_ads.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
+        }
+        else
+        {
+            t_anchor.position = Vector3.Lerp(t_anchor.position, t_hip.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
+        }
+    }
+
+    [PunRPC]
+    public void Shoot()
+    {
+        Vector3 t_bloom = t_spawn.position + t_spawn.forward * 1000f;
+        t_bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * t_spawn.up;
+        t_bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * t_spawn.right;
+        t_bloom -= t_spawn.position;
+        t_bloom.Normalize();
+
+
+        RaycastHit t_hit = new RaycastHit();
+        if (Physics.Raycast(t_spawn.position, t_bloom, out t_hit, 1000f, canBeShot))
+        {
+            //tracer.SetPosition(0, barrel.position);
+            //tracer.SetPosition(1, t_hit.point);
+            //tracer.enabled = true;
+            timer = 0;
+            GameObject t_newHole = Instantiate(bulletholePrefab, t_hit.point + t_hit.normal * 0.001f, Quaternion.identity) as GameObject;
+            t_newHole.transform.LookAt(t_hit.point + t_hit.normal);
+            Destroy(t_newHole, 5f);
+
+            if (photonView.IsMine)
+            {
+                if(t_hit.collider.gameObject.layer == 20)
+                {
+                    t_hit.collider.gameObject.GetPhotonView().RPC("TakeDamage", RpcTarget.All, loadout[currentIndex].damage);
+                }
+            }
+        }
+        currentCoolDown = loadout[currentIndex].firerate;
+
+        if (photonView.IsMine)
+        {
+            currentWeapon.transform.Rotate(-loadout[currentIndex].recoil, 0, 0);
+            currentWeapon.transform.position -= currentWeapon.transform.forward * loadout[currentIndex].kickback;
+        }
+    }
+
+    [PunRPC]
+    void TakeDamage(int damage)
+    {
+        GetComponent<MPlayerMovement>().TakeDamage(damage);
+    }
+
+}

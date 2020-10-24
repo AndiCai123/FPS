@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e3ae3ea24b7664cbed0855d7931bef, type: 3}
+  m_Name: LMG
+  m_EditorClassIdentifier: 
+  name: LMG
+  damage: 20
+  headshotdamage: 50
+  recoilaccuracy: 0.9325301
+  recoilmultiplier: 200
+  recoilrecovery: 100
+  burst: 1
+  clipsize: 75
+  ammo: 225
+  walkspeed: 1500
+  adswalkspeed: 1200
+  adsbloom: 15
+  adsaccuracyspeed: 5
+  adssens: 27
+  firerate: 0.1
+  bloom: 25
+  reloadtime: 1
+  recoil: 3
+  kickback: 0.05
+  aimSpeed: 5
+  mainFOV: 0.9
+  weaponFOV: 0.8
+  prefab: {fileID: 6548363730723530591, guid: b8d7eabb0118cb74d95da57ae54d20b8, type: 3}

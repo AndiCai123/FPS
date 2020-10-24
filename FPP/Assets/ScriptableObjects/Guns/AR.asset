@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e3ae3ea24b7664cbed0855d7931bef, type: 3}
+  m_Name: AR
+  m_EditorClassIdentifier: 
+  name: AR
+  damage: 20
+  headshotdamage: 60
+  recoilaccuracy: 0.9565007
+  recoilmultiplier: 250
+  recoilrecovery: 100
+  burst: 1
+  clipsize: 30
+  ammo: 120
+  walkspeed: 2000
+  adswalkspeed: 1500
+  adsbloom: 15
+  adsaccuracyspeed: 3
+  adssens: 27
+  firerate: 0.1
+  bloom: 30
+  reloadtime: 1
+  recoil: 3
+  kickback: 0.05
+  aimSpeed: 10
+  mainFOV: 0.9
+  weaponFOV: 0.8
+  prefab: {fileID: 6548363730723530591, guid: 82b3c9dbd1af7464ca4be770d2a06c3e, type: 3}

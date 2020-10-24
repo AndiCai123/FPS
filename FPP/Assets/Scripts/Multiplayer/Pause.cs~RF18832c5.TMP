@@ -1,0 +1,52 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Photon.Pun;
+using UnityEngine.SceneManagement;
+
+public class Pause : MonoBehaviour
+{
+
+    public bool paused = false;
+
+    private bool disconnecting = false;
+
+    public GameObject pauseMenu;
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+        if (paused)
+        {
+            Cursor.lockState = Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+=
+        }
+    }
+
+    public void TogglePause()
+    {
+        if (disconnecting) return;
+
+        paused = !paused;
+
+        pauseMenu.SetActive(paused);
+
+    }
+
+    
+    public void Quit()
+    {
+        disconnecting = true;
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene("MultiplayerMenu");
+    }
+}
