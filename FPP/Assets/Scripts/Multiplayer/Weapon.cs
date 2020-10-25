@@ -13,6 +13,8 @@ public class Weapon : MonoBehaviourPunCallbacks
 
     //public float smooth;
 
+    public GameObject bullet;
+
     public LineRenderer tracer;
 
     public AudioSource sfx;
@@ -44,11 +46,11 @@ public class Weapon : MonoBehaviourPunCallbacks
 
     public bool isFired;
 
-    private float tracerTime = 0.1f;
+    //private float tracerTime = 0.1f;
 
     public Transform Anchor;
 
-    public float timer;
+    //public float timer;
 
     public float currentBloom;
 
@@ -151,7 +153,6 @@ public class Weapon : MonoBehaviourPunCallbacks
 
             //Aim(Input.GetMouseButton(1));
 
-            tracer.useWorldSpace = true;
 
             if (movement.isAiming)
             {
@@ -216,22 +217,6 @@ public class Weapon : MonoBehaviourPunCallbacks
             currentWeapon.transform.rotation = Quaternion.Lerp(Anchor.rotation, weaponParent.rotation, Time.deltaTime * 5f/* * smooth*/);
 
             if (currentCoolDown > 0) currentCoolDown -= Time.deltaTime;
-        }
-
-        if (timer < tracerTime)
-        {
-            timer += Time.deltaTime;
-        }
-
-        if(timer >= tracerTime)
-        {
-            if (currentWeapon != null)
-            {
-                if (tracer.enabled)
-                {
-                    photonView.RPC("RemoveTracer", RpcTarget.All);
-                }
-            }
         }
         
     }
@@ -310,57 +295,65 @@ public class Weapon : MonoBehaviourPunCallbacks
     [PunRPC]
     public void Shoot()
     {
-        Vector3 t_bloom = t_spawn.position + t_spawn.forward * 1000f;
-        t_bloom += UnityEngine.Random.Range(-currentBloom + loadout[currentIndex].recoilaccuracy, currentBloom + loadout[currentIndex].recoilaccuracy) * t_spawn.up;
-        t_bloom += UnityEngine.Random.Range(-currentBloom - loadout[currentIndex].recoilaccuracy / 2, currentBloom + loadout[currentIndex].recoilaccuracy / 2) * t_spawn.right;
-        t_bloom -= t_spawn.position;
-        t_bloom.Normalize();
+        currentCoolDown = loadout[currentIndex].firerate;
 
-
-        RaycastHit t_hit = new RaycastHit();
-        if (Physics.Raycast(t_spawn.position, t_bloom, out t_hit, 1000f, canBeShot))
+        for(int i = 0; i< Mathf.Max(1, loadout[currentIndex].pellets); i++)
         {
-            tracer.SetPosition(0, barrel.position);
-            tracer.SetPosition(1, t_hit.point);
-            tracer.enabled = true;
-            timer = 0;
-            GameObject t_newHole = Instantiate(bulletholePrefab, t_hit.point + t_hit.normal * 0.001f, Quaternion.identity) as GameObject;
-            t_newHole.transform.LookAt(t_hit.point + t_hit.normal);
-            Destroy(t_newHole, 5f);
+            Vector3 t_bloom = t_spawn.position + t_spawn.forward * 1000f;
+            t_bloom += UnityEngine.Random.Range(-currentBloom + loadout[currentIndex].recoilaccuracy, currentBloom + loadout[currentIndex].recoilaccuracy) * t_spawn.up;
+            t_bloom += UnityEngine.Random.Range(-currentBloom - loadout[currentIndex].recoilaccuracy / 2, currentBloom + loadout[currentIndex].recoilaccuracy / 2) * t_spawn.right;
+            t_bloom -= t_spawn.position;
+            t_bloom.Normalize();
 
-            if (photonView.IsMine)
+
+            RaycastHit t_hit = new RaycastHit();
+            if (Physics.Raycast(t_spawn.position, t_bloom, out t_hit, 1000f, canBeShot))
             {
-                if(t_hit.collider.gameObject.layer == 20)
-                {
-                    if (t_hit.collider.gameObject.CompareTag("Head"))
-                    {
-                        Debug.Log("headshot");
-                        dink.Stop();
-                        dink.Play();
-                        t_hit.collider.gameObject.transform.parent.gameObject.GetPhotonView().RPC("TakeDamage", RpcTarget.All, loadout[currentIndex].headshotdamage);
-                        HSMarker.SetActive(true);
-                        HSMarkerTimer = 0f;
-                    }
-                    else
-                    {
-                        hitmarker.Stop();
-                        hitmarker.Play();
-                        t_hit.collider.gameObject.GetPhotonView().RPC("TakeDamage", RpcTarget.All, loadout[currentIndex].damage);
-                        hitMarker.SetActive(true);
-                        hitMarkerTimer = 0f;
-                    }
-                    t_newHole.transform.parent = t_hit.collider.gameObject.transform;
+                GameObject bulletTracer = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+                Destroy(bulletTracer, 0.1f);
+                tracer = bulletTracer.GetComponent<LineRenderer>();
+                tracer.useWorldSpace = true;
+                tracer.SetPosition(0, barrel.position);
+                tracer.SetPosition(1, t_hit.point);
+                tracer.enabled = true;
+                GameObject t_newHole = Instantiate(bulletholePrefab, t_hit.point + t_hit.normal * 0.001f, Quaternion.identity) as GameObject;
+                t_newHole.transform.LookAt(t_hit.point + t_hit.normal);
+                Destroy(t_newHole, 5f);
 
+                if (photonView.IsMine)
+                {
+                    if (t_hit.collider.gameObject.layer == 20)
+                    {
+                        if (t_hit.collider.gameObject.CompareTag("Head"))
+                        {
+                            Debug.Log("headshot");
+                            dink.Stop();
+                            dink.Play();
+                            t_hit.collider.gameObject.transform.parent.gameObject.GetPhotonView().RPC("TakeDamage", RpcTarget.All, loadout[currentIndex].headshotdamage);
+                            HSMarker.SetActive(true);
+                            HSMarkerTimer = 0f;
+                        }
+                        else
+                        {
+                            hitmarker.Stop();
+                            hitmarker.Play();
+                            t_hit.collider.gameObject.GetPhotonView().RPC("TakeDamage", RpcTarget.All, loadout[currentIndex].damage);
+                            hitMarker.SetActive(true);
+                            hitMarkerTimer = 0f;
+                        }
+                        t_newHole.transform.parent = t_hit.collider.gameObject.transform;
+
+                    }
                 }
             }
+
         }
-        sfx.Stop();
+        //sfx.Stop();
         sfx.clip = loadout[currentIndex].gunshotsound;
         sfx.pitch = 1 - loadout[currentIndex].pitchrandomization + UnityEngine.Random.Range(-loadout[currentIndex].pitchrandomization, loadout[currentIndex].pitchrandomization);
         sfx.volume = loadout[currentIndex].gunshotvolume;
         sfx.Play();
 
-        currentCoolDown = loadout[currentIndex].firerate;
 
         if (photonView.IsMine)
         {
@@ -385,13 +378,6 @@ public class Weapon : MonoBehaviourPunCallbacks
     {
         GetComponent<MPlayerMovement>().TakeDamage(damage);
     }
-
-    [PunRPC]
-    void RemoveTracer()
-    {
-        tracer.enabled = false;
-    }
-
 
     public void Spawn(int i)
     {

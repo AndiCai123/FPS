@@ -13,6 +13,7 @@ public class Gun : ScriptableObject
     public float recoilmultiplier;
     public float recoilrecovery;
     public int burst;
+    public int pellets;
     public int clipsize;
     public int ammo;
     public float walkspeed;
@@ -31,7 +32,6 @@ public class Gun : ScriptableObject
     public float pitchrandomization;
     public float gunshotvolume;
     public GameObject prefab;
-
     private int stash;
     private int clip;
 

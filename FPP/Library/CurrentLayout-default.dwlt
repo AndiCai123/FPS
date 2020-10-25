@@ -545,7 +545,7 @@ MonoBehaviour:
   m_MinSize: {x: 707, y: 492}
   m_MaxSize: {x: 18003, y: 14042}
   vertical: 0
-  controlID: 29771
+  controlID: 8798
 --- !u!114 &24
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_MinSize: {x: 432, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 1
-  controlID: 29772
+  controlID: 8799
 --- !u!114 &25
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -595,7 +595,7 @@ MonoBehaviour:
   m_MinSize: {x: 401, y: 221}
   m_MaxSize: {x: 8001, y: 4021}
   vertical: 0
-  controlID: 29773
+  controlID: 8867
 --- !u!114 &26
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -678,7 +678,7 @@ MonoBehaviour:
   m_MinSize: {x: 432, y: 271}
   m_MaxSize: {x: 14002, y: 10021}
   vertical: 0
-  controlID: 29798
+  controlID: 8800
 --- !u!114 &29
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_MinSize: {x: 275, y: 171}
   m_MaxSize: {x: 4001, y: 8021}
   vertical: 1
-  controlID: 29731
+  controlID: 8763
 --- !u!114 &32
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -929,16 +929,16 @@ MonoBehaviour:
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
   m_Gizmos: 1
   m_OverrideSceneCullingMask: 0
-  m_SceneIsLit: 0
+  m_SceneIsLit: 1
   m_SceneLighting: 1
   m_2DMode: 0
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -353.26028, y: -240.88931, z: 1374.3357}
+    m_Target: {x: -0.1482897, y: -1.1490773, z: 2.1131287}
     speed: 2
-    m_Value: {x: -353.26028, y: -240.88931, z: 1374.3357}
+    m_Value: {x: -0.1482897, y: -1.1490773, z: 2.1131287}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -985,17 +985,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.49310955, y: -0.2481279, z: -0.82038975, w: 0.14914066}
+    m_Target: {x: 0.0883666, y: -0.8759632, z: 0.17574331, w: 0.44044852}
     speed: 2
-    m_Value: {x: 0.49310955, y: 0.2481279, z: 0.82038975, w: -0.14914066}
+    m_Value: {x: -0.08836657, y: 0.8759629, z: -0.17574325, w: -0.44044837}
   m_Size:
-    m_Target: 1600.1918
+    m_Target: 1.9279882
     speed: 2
-    m_Value: 1600.1918
+    m_Value: 1.9279882
   m_Ortho:
-    m_Target: 1
+    m_Target: 0
     speed: 2
-    m_Value: 1
+    m_Value: 0
   m_CameraSettings:
     m_Speed: 1
     m_SpeedNormalized: 0.5
@@ -1374,9 +1374,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: bc7ff4ff
-      m_LastClickedID: -753732
-      m_ExpandedIDs: b636f5ffe636f5fff6140b000a150b001e150b00
+      m_SelectedIDs: ee4efeff
+      m_LastClickedID: -110866
+      m_ExpandedIDs: f67afeffa8dc0100b8dc0100bedc0100c2dc0100c4dc0100e4dc0100eedc010006dd0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1453,7 +1453,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -732846
+  m_LastSelectedObjectID: 122116
 --- !u!114 &44
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1492,21 +1492,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Audio/Clips/GunShots
+    - Assets/ScriptableObjects/Guns
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Audio/Clips/GunShots
+  - Assets/ScriptableObjects/Guns
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\andic\Documents\GitHub\FPS\FPP
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 8e130b00
-    m_LastClickedID: 725902
-    m_ExpandedIDs: 0000000040540000425400004454000046540000485400004a5400004c5400004e54000050540000525400005454000056540000585400005a5400005c5400005e540000d4540000086a000000ca9a3b
+    scrollPos: {x: 0, y: 360}
+    m_SelectedIDs: 50550000
+    m_LastClickedID: 21840
+    m_ExpandedIDs: 0000000040540000425400004454000046540000485400004a5400004c5400004e54000050540000525400005454000056540000585400005a5400005c5400005e540000605400006254000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1534,7 +1534,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000040540000425400004454000046540000485400004a5400004c5400004e54000050540000525400005454000056540000585400005a5400005c5400005e540000d4540000086a000000ca9a3b
+    m_ExpandedIDs: 0000000040540000425400004454000046540000485400004a5400004c5400004e54000050540000525400005454000056540000585400005a5400005c5400005e540000605400006254000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1647,7 +1647,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 81
+  m_LastVerticalScrollValue: 0
   m_AssetGUID: 
   m_InstanceID: 0
   m_LockTracker:
