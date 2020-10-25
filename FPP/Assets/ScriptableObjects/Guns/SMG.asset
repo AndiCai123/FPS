@@ -15,7 +15,7 @@ MonoBehaviour:
   name: SMG
   damage: 18
   headshotdamage: 45
-  recoilaccuracy: 0
+  recoilaccuracy: -0.24370041
   recoilmultiplier: 250
   recoilrecovery: 100
   burst: 1
@@ -23,8 +23,8 @@ MonoBehaviour:
   ammo: 160
   walkspeed: 2500
   adswalkspeed: 2000
-  adsbloom: 15
-  adsaccuracyspeed: 4
+  adsbloom: 1
+  adsaccuracyspeed: 15
   adssens: 27
   firerate: 0.05
   bloom: 30
@@ -33,5 +33,7 @@ MonoBehaviour:
   kickback: 0.05
   aimSpeed: 15
   mainFOV: 0.9
-  weaponFOV: 0.8
+  gunshotsound: {fileID: 8300000, guid: 444a85146007c174db09c4de1779f8d9, type: 3}
+  pitchrandomization: 0.1
+  gunshotvolume: 0.5
   prefab: {fileID: 6548363730723530591, guid: 165c0fdc1d22bd640868fcecb3f320b1, type: 3}

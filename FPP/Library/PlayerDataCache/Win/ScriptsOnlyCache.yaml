@@ -1460,7 +1460,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 19132}
     - Class: 114
-      Script: {instanceID: 26946}
+      Script: {instanceID: 46674}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -1632,6 +1632,8 @@ ScriptsOnlyBuild:
     - Class: 128
       Script: {instanceID: 0}
     - Class: 134
+      Script: {instanceID: 0}
+    - Class: 136
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -2832,7 +2834,7 @@ ScriptsOnlyBuild:
     className: LightCluster
   - hash:
       serializedVersion: 2
-      Hash: 779b74a10793b2cf95407bbebc8c14c2
+      Hash: d971f7a180285724339aa2c3c08c447d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Weapon
@@ -2862,7 +2864,7 @@ ScriptsOnlyBuild:
     className: AutoExposure
   - hash:
       serializedVersion: 2
-      Hash: f4f29b6918e62798c41046f717640c75
+      Hash: 754522dcafdec1d5608187949233f03d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MPlayerMovement
@@ -3744,7 +3746,7 @@ ScriptsOnlyBuild:
     className: PhysicallyBasedSky
   - hash:
       serializedVersion: 2
-      Hash: 8e5a2c631bcb700cd257b185b35f016a
+      Hash: 275c973a77d4b7355ae0954b617c8bd9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Gun
@@ -4144,4 +4146,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainLevels/Tutorial.unity
   - Assets/Scenes/MainLevels/Level2.unity
   - Assets/Scenes/Menu/MultiplayerMenu.unity
-  playerPath: C:/Users/andic/Documents/GitHub/FPP/FPP/Builds/FPP.exe
+  playerPath: C:/Users/andic/Documents/GitHub/FPS/FPP/Builds/FPP.exe

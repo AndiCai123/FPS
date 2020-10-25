@@ -15,7 +15,15 @@ public class Weapon : MonoBehaviourPunCallbacks
 
     public LineRenderer tracer;
 
+    public AudioSource sfx;
+    public AudioSource hitmarker;
+    public AudioSource dink;
+
+    public Camera normalCam;
+
     public Spawn spawn;
+
+    public bool isSpawned = false;
 
     public GameObject deployScreen;
 
@@ -77,6 +85,7 @@ public class Weapon : MonoBehaviourPunCallbacks
         rb = GetComponent<Rigidbody>();
         if (photonView.IsMine)
         {
+            isSpawned = false;
             spawn.Init();
             Debug.Log("spawned");
         }
@@ -144,21 +153,29 @@ public class Weapon : MonoBehaviourPunCallbacks
 
             tracer.useWorldSpace = true;
 
-            if (isADS)
+            if (movement.isAiming)
             {
                 if(currentBloom > loadout[currentIndex].adsbloom)
                 {
                     currentBloom -= Time.deltaTime * (loadout[currentIndex].bloom - loadout[currentIndex].adsbloom) * (loadout[currentIndex].adsaccuracyspeed);
                     Debug.Log(currentBloom);
                 }
+                if(currentBloom < 0f)
+                {
+                    currentBloom = loadout[currentIndex].adsbloom;
+                }
+                Aim(true);
+                normalCam.fieldOfView = Mathf.Lerp(normalCam.fieldOfView, 90 * loadout[currentIndex].mainFOV, Time.deltaTime * 8f);
                 //movement.moveSpeed = movement.moveSpeed * loadout[currentIndex].adswalkspeed;
                 movement.moveSpeed = loadout[currentIndex].adswalkspeed;
             }
             else
             {
+                Aim(false);
                 currentBloom = loadout[currentIndex].bloom;
                 //movement.moveSpeed = movement.moveSpeed / loadout[currentIndex].adswalkspeed;
                 movement.moveSpeed = loadout[currentIndex].walkspeed;
+                normalCam.fieldOfView = Mathf.Lerp(normalCam.fieldOfView, 90, Time.deltaTime * 8f);
             }
 
             if (Input.GetKeyDown(KeyCode.R)) StartCoroutine(Reload(loadout[currentIndex].reloadtime));
@@ -318,12 +335,16 @@ public class Weapon : MonoBehaviourPunCallbacks
                     if (t_hit.collider.gameObject.CompareTag("Head"))
                     {
                         Debug.Log("headshot");
+                        dink.Stop();
+                        dink.Play();
                         t_hit.collider.gameObject.transform.parent.gameObject.GetPhotonView().RPC("TakeDamage", RpcTarget.All, loadout[currentIndex].headshotdamage);
                         HSMarker.SetActive(true);
                         HSMarkerTimer = 0f;
                     }
                     else
                     {
+                        hitmarker.Stop();
+                        hitmarker.Play();
                         t_hit.collider.gameObject.GetPhotonView().RPC("TakeDamage", RpcTarget.All, loadout[currentIndex].damage);
                         hitMarker.SetActive(true);
                         hitMarkerTimer = 0f;
@@ -333,6 +354,12 @@ public class Weapon : MonoBehaviourPunCallbacks
                 }
             }
         }
+        sfx.Stop();
+        sfx.clip = loadout[currentIndex].gunshotsound;
+        sfx.pitch = 1 - loadout[currentIndex].pitchrandomization + UnityEngine.Random.Range(-loadout[currentIndex].pitchrandomization, loadout[currentIndex].pitchrandomization);
+        sfx.volume = loadout[currentIndex].gunshotvolume;
+        sfx.Play();
+
         currentCoolDown = loadout[currentIndex].firerate;
 
         if (photonView.IsMine)
@@ -340,6 +367,7 @@ public class Weapon : MonoBehaviourPunCallbacks
             currentWeapon.transform.Rotate(-loadout[currentIndex].recoil, 0, 0);
             currentWeapon.transform.position -= currentWeapon.transform.forward * loadout[currentIndex].kickback;
         }
+
     }
 
     IEnumerator Reload(float p_wait)
@@ -368,6 +396,7 @@ public class Weapon : MonoBehaviourPunCallbacks
     public void Spawn(int i)
     {
         if (!photonView.IsMine) return;
+        isSpawned = true;
         //Debug.Log("Spawned");
         //deployScreen = GameObject.Find("Canvas/Deploy");
         //deployScreen.SetActive(false);

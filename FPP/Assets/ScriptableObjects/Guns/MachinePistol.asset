@@ -15,7 +15,7 @@ MonoBehaviour:
   name: MachinePistol
   damage: 15
   headshotdamage: 30
-  recoilaccuracy: 0
+  recoilaccuracy: 39.55286
   recoilmultiplier: 250
   recoilrecovery: 100
   burst: 1
@@ -33,5 +33,7 @@ MonoBehaviour:
   kickback: 0.05
   aimSpeed: 10
   mainFOV: 0.9
-  weaponFOV: 0.8
+  gunshotsound: {fileID: 8300000, guid: a5c6553ff2f4d6649a5ec2ae12ae9e66, type: 3}
+  pitchrandomization: 0.1
+  gunshotvolume: 0.5
   prefab: {fileID: 6548363730723530591, guid: af840865e4e23a1499ca8247daa57c53, type: 3}

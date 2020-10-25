@@ -12,7 +12,6 @@ public class MPlayerMovement : MonoBehaviourPunCallbacks
     private Vector3 weaponOrigin;
     private Vector3 targetBobPosition;
 
-    public Camera weaponCam;
     public Camera normalCam;
 
     public bool isAiming;
@@ -118,10 +117,6 @@ public class MPlayerMovement : MonoBehaviourPunCallbacks
             RefreshHealthBar();
             weaponScript.RefreshAmmo(ammo);
         }
-        else
-        {
-            Destroy(weaponCam);
-        }
 
         currentHealth = maxHealth;
 
@@ -142,28 +137,36 @@ public class MPlayerMovement : MonoBehaviourPunCallbacks
     {
         if (!photonView.IsMine) return;
         Movement();
-        bool aim = Input.GetMouseButton(1);
+        //bool aim = Input.GetMouseButton(1);
 
-        isAiming = aim;
+        //isAiming = aim;
 
-        weaponScript.Aim(isAiming);
+        //weaponScript.Aim(isAiming);
 
-        if (isAiming)
-        {
-            normalCam.fieldOfView = Mathf.Lerp(normalCam.fieldOfView, 90 * weaponScript.currentGunData.mainFOV, Time.deltaTime * 8f);
-            weaponCam.fieldOfView = Mathf.Lerp(weaponCam.fieldOfView, 90 * weaponScript.currentGunData.weaponFOV, Time.deltaTime * 8f);
-        }        
-        if (!isAiming)
-        {
-            normalCam.fieldOfView = Mathf.Lerp(normalCam.fieldOfView, 90, Time.deltaTime * 8f);
-            weaponCam.fieldOfView = Mathf.Lerp(weaponCam.fieldOfView, 90, Time.deltaTime * 8f);
-        }
+        //if (isAiming)
+        //{
+        //}        
+        //if (!isAiming)
+        //{
+        //    normalCam.fieldOfView = Mathf.Lerp(normalCam.fieldOfView, 90, Time.deltaTime * 8f);
+        //}
     }
 
     private void Update()
     {
-        weaponCam.transform.rotation = normalCam.transform.rotation;
         if (!photonView.IsMine) return;
+
+        if (weaponScript.isSpawned)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                isAiming = true;
+            }
+            if (Input.GetMouseButtonUp(1))
+            {
+                isAiming = false;
+            }
+        }
 
         if (screenFlashTimer < 0.5f)
         {

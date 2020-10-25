@@ -33,5 +33,7 @@ MonoBehaviour:
   kickback: 0.2
   aimSpeed: 20
   mainFOV: 0.9
-  weaponFOV: 0.8
+  gunshotsound: {fileID: 8300000, guid: b53e6a680e59c5640a6ab8a9f79f9fed, type: 3}
+  pitchrandomization: 0.1
+  gunshotvolume: 0.5
   prefab: {fileID: 6548363730723530591, guid: deb5f506c093c2d46a1ca8eaf20e0038, type: 3}

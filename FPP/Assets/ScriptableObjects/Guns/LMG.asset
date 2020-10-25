@@ -15,7 +15,7 @@ MonoBehaviour:
   name: LMG
   damage: 20
   headshotdamage: 50
-  recoilaccuracy: 0.9325301
+  recoilaccuracy: -0.38082042
   recoilmultiplier: 200
   recoilrecovery: 100
   burst: 1
@@ -33,5 +33,7 @@ MonoBehaviour:
   kickback: 0.05
   aimSpeed: 5
   mainFOV: 0.9
-  weaponFOV: 0.8
+  gunshotsound: {fileID: 8300000, guid: 63836688f6821aa4486bfdd7783a8be4, type: 3}
+  pitchrandomization: 0.1
+  gunshotvolume: 0.5
   prefab: {fileID: 6548363730723530591, guid: b8d7eabb0118cb74d95da57ae54d20b8, type: 3}
