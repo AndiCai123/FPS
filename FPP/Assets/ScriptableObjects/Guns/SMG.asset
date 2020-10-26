@@ -15,10 +15,11 @@ MonoBehaviour:
   name: SMG
   damage: 18
   headshotdamage: 45
-  recoilaccuracy: -0.24370041
+  recoilaccuracy: -0.42607874
   recoilmultiplier: 250
-  recoilrecovery: 100
+  recoilrecovery: 200
   burst: 1
+  pellets: 0
   clipsize: 40
   ammo: 160
   walkspeed: 2500

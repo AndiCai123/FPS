@@ -14,27 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Shotgun
   damage: 18
-  headshotdamage: 36
+  headshotdamage: 40
   recoilaccuracy: 0
   recoilmultiplier: 0
   recoilrecovery: 0
   burst: 0
-  pellets: 8
+  pellets: 13
   clipsize: 7
   ammo: 35
   walkspeed: 1500
   adswalkspeed: 1200
-  adsbloom: 60
+  adsbloom: 50
   adsaccuracyspeed: 15
   adssens: 27
-  firerate: 1
-  bloom: 85
-  reloadtime: 2
+  firerate: 0.6
+  bloom: 70
+  reloadtime: 1.5
   recoil: 10
   kickback: 1
   aimSpeed: 15
   mainFOV: 0.9
-  gunshotsound: {fileID: 8300000, guid: 2b323c6a42e132d4fb724e12c1648e0f, type: 3}
+  gunshotsound: {fileID: 8300000, guid: 9760d8bfb2dff8842a4e0e74d0446a55, type: 3}
   pitchrandomization: 0.05
-  gunshotvolume: 1
+  gunshotvolume: 0.5
   prefab: {fileID: 6548363730723530591, guid: 874cc3d470a5a43419f8b2e8f7f0dd26, type: 3}

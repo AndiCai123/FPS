@@ -17,8 +17,9 @@ MonoBehaviour:
   headshotdamage: 30
   recoilaccuracy: 39.55286
   recoilmultiplier: 250
-  recoilrecovery: 100
+  recoilrecovery: 200
   burst: 1
+  pellets: 0
   clipsize: 15
   ammo: 60
   walkspeed: 2500
@@ -33,7 +34,7 @@ MonoBehaviour:
   kickback: 0.05
   aimSpeed: 10
   mainFOV: 0.9
-  gunshotsound: {fileID: 8300000, guid: a5c6553ff2f4d6649a5ec2ae12ae9e66, type: 3}
+  gunshotsound: {fileID: 8300000, guid: d09050bc93fa8b8499d44adcc2df98a7, type: 3}
   pitchrandomization: 0.1
   gunshotvolume: 0.5
   prefab: {fileID: 6548363730723530591, guid: af840865e4e23a1499ca8247daa57c53, type: 3}

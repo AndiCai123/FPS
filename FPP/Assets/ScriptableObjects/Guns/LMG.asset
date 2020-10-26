@@ -13,20 +13,21 @@ MonoBehaviour:
   m_Name: LMG
   m_EditorClassIdentifier: 
   name: LMG
-  damage: 20
+  damage: 17
   headshotdamage: 50
-  recoilaccuracy: -0.38082042
+  recoilaccuracy: 0.39455903
   recoilmultiplier: 200
-  recoilrecovery: 100
+  recoilrecovery: 200
   burst: 1
-  clipsize: 75
-  ammo: 225
+  pellets: 0
+  clipsize: 50
+  ammo: 200
   walkspeed: 1500
   adswalkspeed: 1200
   adsbloom: 15
   adsaccuracyspeed: 5
   adssens: 27
-  firerate: 0.1
+  firerate: 0.07
   bloom: 25
   reloadtime: 1
   recoil: 3

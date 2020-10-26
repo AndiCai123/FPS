@@ -1460,7 +1460,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 19132}
     - Class: 114
-      Script: {instanceID: 26890}
+      Script: {instanceID: 27364}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -2834,7 +2834,7 @@ ScriptsOnlyBuild:
     className: LightCluster
   - hash:
       serializedVersion: 2
-      Hash: 14780ffa497e09f666f5e0df5b75fc96
+      Hash: 48271aa5c7779e84b457a79b254296ad
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Weapon
@@ -3746,7 +3746,7 @@ ScriptsOnlyBuild:
     className: PhysicallyBasedSky
   - hash:
       serializedVersion: 2
-      Hash: fdd6ade5619dabfeaacaa81586aa7718
+      Hash: 33b8031d7f3cc25e5e27648fa5ec1ffa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Gun

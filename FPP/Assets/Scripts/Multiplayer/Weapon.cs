@@ -74,8 +74,8 @@ public class Weapon : MonoBehaviourPunCallbacks
 
     private GameObject currentWeapon;
 
-    float hitMarkerTimer = 0.5f;
-    float HSMarkerTimer = 0.5f;
+    float hitMarkerTimer = 0.1f;
+    float HSMarkerTimer = 0.1f;
 
     public void Start()
     {
@@ -103,7 +103,7 @@ public class Weapon : MonoBehaviourPunCallbacks
 
         Debug.Log(spawn.primary);
 
-        if (hitMarkerTimer < 0.5f)
+        if (hitMarkerTimer < 0.1f)
         {
             hitMarkerTimer += Time.deltaTime;
         }
@@ -113,7 +113,7 @@ public class Weapon : MonoBehaviourPunCallbacks
             Spawn(spawn.zone);
         }
 
-        if(hitMarkerTimer >= 0.5f)
+        if(hitMarkerTimer >= 0.1f)
         {
             if (hitMarker == null)
             {
@@ -122,12 +122,12 @@ public class Weapon : MonoBehaviourPunCallbacks
             hitMarker.SetActive(false);
         }        
         
-        if (HSMarkerTimer < 0.5f)
+        if (HSMarkerTimer < 0.1f)
         {
             HSMarkerTimer += Time.deltaTime;
         }
 
-        if(HSMarkerTimer >= 0.5f)
+        if(HSMarkerTimer >= 0.1f)
         {
             if (HSMarker == null)
             {

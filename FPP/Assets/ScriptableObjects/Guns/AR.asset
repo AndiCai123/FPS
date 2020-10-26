@@ -15,19 +15,20 @@ MonoBehaviour:
   name: AR
   damage: 20
   headshotdamage: 60
-  recoilaccuracy: -0.05848532
-  recoilmultiplier: 250
+  recoilaccuracy: -0.011830717
+  recoilmultiplier: 300
   recoilrecovery: 100
   burst: 1
+  pellets: 0
   clipsize: 30
   ammo: 120
   walkspeed: 2000
   adswalkspeed: 1500
-  adsbloom: 15
+  adsbloom: 10
   adsaccuracyspeed: 3
   adssens: 27
   firerate: 0.1
-  bloom: 30
+  bloom: 20
   reloadtime: 1
   recoil: 3
   kickback: 0.05
