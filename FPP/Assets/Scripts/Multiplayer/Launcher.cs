@@ -5,6 +5,14 @@ using Photon.Pun;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
+    public GameObject Loading;
+
+    public GameObject JoinButton;
+
+    public GameObject CreateButton;
+
+    public GameObject QuitButton;
+
     public void Awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -13,6 +21,14 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
+        Loading.SetActive(false);
+
+        JoinButton.SetActive(true);
+
+        CreateButton.SetActive(true);
+
+        QuitButton.SetActive(true);
+
         base.OnConnectedToMaster();
     }
 

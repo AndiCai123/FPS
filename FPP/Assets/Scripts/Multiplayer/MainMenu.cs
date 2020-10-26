@@ -16,11 +16,19 @@ public class MainMenu : MonoBehaviour
     public void JoinMatch()
     {
         launcher.Join();
+        launcher.JoinButton.SetActive(false);
+        launcher.CreateButton.SetActive(false);
+        launcher.QuitButton.SetActive(false);
+        launcher.Loading.SetActive(true);
     }
 
     public void CreateMatch()
     {
         launcher.Create();
+        launcher.JoinButton.SetActive(false);
+        launcher.CreateButton.SetActive(false);
+        launcher.QuitButton.SetActive(false);
+        launcher.Loading.SetActive(true);
     }
 
     public void BackToMenu()

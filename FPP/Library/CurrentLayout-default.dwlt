@@ -237,7 +237,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: Game
   m_RootView: {fileID: 20}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &11
@@ -542,10 +542,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 707, y: 492}
+  m_MinSize: {x: 708, y: 492}
   m_MaxSize: {x: 18003, y: 14042}
   vertical: 0
-  controlID: 161
+  controlID: 165
 --- !u!114 &24
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_MinSize: {x: 432, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 1
-  controlID: 31
+  controlID: 211
 --- !u!114 &25
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -592,10 +592,10 @@ MonoBehaviour:
     y: 0
     width: 1366
     height: 502
-  m_MinSize: {x: 401, y: 221}
-  m_MaxSize: {x: 8001, y: 4021}
+  m_MinSize: {x: 403, y: 221}
+  m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 78
+  controlID: 212
 --- !u!114 &26
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -678,7 +678,7 @@ MonoBehaviour:
   m_MinSize: {x: 432, y: 271}
   m_MaxSize: {x: 14002, y: 10021}
   vertical: 0
-  controlID: 32
+  controlID: 31
 --- !u!114 &29
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -754,10 +754,10 @@ MonoBehaviour:
     y: 0
     width: 554
     height: 947
-  m_MinSize: {x: 275, y: 171}
-  m_MaxSize: {x: 4001, y: 8021}
+  m_MinSize: {x: 276, y: 192}
+  m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 162
+  controlID: 166
 --- !u!114 &32
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -928,17 +928,17 @@ MonoBehaviour:
   m_ShowContextualTools: 0
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
   m_Gizmos: 1
-  m_OverrideSceneCullingMask: 0
-  m_SceneIsLit: 0
+  m_OverrideSceneCullingMask: 6917529027641081856
+  m_SceneIsLit: 1
   m_SceneLighting: 1
   m_2DMode: 0
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.17899746, y: 0.06471181, z: 0.31715608}
+    m_Target: {x: 908.01636, y: 660.34375, z: -88.288666}
     speed: 2
-    m_Value: {x: 0.17899746, y: 0.06471181, z: 0.31715608}
+    m_Value: {x: 908.01636, y: 660.34375, z: -88.288666}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -950,7 +950,7 @@ MonoBehaviour:
   m_SceneViewState:
     showFog: 1
     showMaterialUpdate: 0
-    showSkybox: 0
+    showSkybox: 1
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -985,13 +985,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.18820226, y: -0.7018226, z: 0.20105249, w: 0.656966}
+    m_Target: {x: 0.10856065, y: 0.1975539, z: -0.022029739, w: 0.9740269}
     speed: 2
-    m_Value: {x: 0.18820213, y: -0.7018221, z: 0.20105234, w: 0.6569655}
+    m_Value: {x: 0.1085592, y: 0.19755127, z: -0.022029445, w: 0.9740139}
   m_Size:
-    m_Target: 1.0279882
+    m_Target: 288.69855
     speed: 2
-    m_Value: 1.0279882
+    m_Value: 288.69855
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1374,9 +1374,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: cc540000
+      m_SelectedIDs: a2550000
       m_LastClickedID: 0
-      m_ExpandedIDs: caaafeffd2700100e2700100e8700100ec700100ee7001000e710100187101001c71010030710100
+      m_ExpandedIDs: b2a8ffffeeb5ffff96c4ffff72c8fffffad0ffffecd3ffff06fbffff348b0000728d00001c8e00006c970000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1453,7 +1453,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -42242
+  m_LastSelectedObjectID: 38756
 --- !u!114 &44
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1492,35 +1492,35 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/ScriptableObjects/Guns
+    - Assets/Scenes/Menu
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/ScriptableObjects/Guns
+  - Assets/Scenes/Menu
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\andic\Documents\GitHub\FPS\FPP
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 400}
-    m_SelectedIDs: ba540000
-    m_LastClickedID: 21690
+    m_SelectedIDs: 48550000
+    m_LastClickedID: 21832
     m_ExpandedIDs: 0000000040540000425400004454000046540000485400004a5400004c5400004e54000050540000525400005454000056540000585400005a5400005c5400005e540000605400006254000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: ScriptableObjects
+      m_OriginalName: ScriptableObjects
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 21844
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 30}
     m_SearchString: 

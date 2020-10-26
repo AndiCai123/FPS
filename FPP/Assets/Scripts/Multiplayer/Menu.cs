@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    public Launcher launcher;
+
     public void SinglePlayer()
     {
         SceneManager.LoadScene("Hub");
-    }    
-    
+    }
+
     public void Multiplayer()
     {
         SceneManager.LoadScene("MultiplayerMenu");
