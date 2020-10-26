@@ -30,7 +30,7 @@ MonoBehaviour:
   firerate: 0.07
   bloom: 25
   reloadtime: 1
-  recoil: 3
+  recoil: 1
   kickback: 0.05
   aimSpeed: 5
   mainFOV: 0.9

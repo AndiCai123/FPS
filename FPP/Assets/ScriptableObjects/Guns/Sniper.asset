@@ -26,14 +26,14 @@ MonoBehaviour:
   adswalkspeed: 1200
   adsbloom: 1
   adsaccuracyspeed: 15
-  adssens: 3
+  adssens: 8
   firerate: 1
   bloom: 200
   reloadtime: 2
   recoil: 0
-  kickback: 0.7
+  kickback: 0.3
   aimSpeed: 15
-  mainFOV: 0.1
+  mainFOV: 0.333
   gunshotsound: {fileID: 8300000, guid: 2b323c6a42e132d4fb724e12c1648e0f, type: 3}
   pitchrandomization: 0.05
   gunshotvolume: 1

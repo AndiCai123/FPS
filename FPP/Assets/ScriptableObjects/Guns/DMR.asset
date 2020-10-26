@@ -19,20 +19,21 @@ MonoBehaviour:
   recoilmultiplier: 0
   recoilrecovery: 0
   burst: 0
+  pellets: 0
   clipsize: 15
   ammo: 75
   walkspeed: 2000
   adswalkspeed: 1500
   adsbloom: 1
   adsaccuracyspeed: 10
-  adssens: 5.5
+  adssens: 13
   firerate: 0.3
   bloom: 100
   reloadtime: 1
   recoil: 0
-  kickback: 0.5
+  kickback: 0.15
   aimSpeed: 15
-  mainFOV: 0.2
+  mainFOV: 0.5
   gunshotsound: {fileID: 8300000, guid: 03f069eccc05737429fa658de0e5590a, type: 3}
   pitchrandomization: 0.1
   gunshotvolume: 0.5

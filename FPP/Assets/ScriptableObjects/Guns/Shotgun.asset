@@ -24,11 +24,11 @@ MonoBehaviour:
   ammo: 35
   walkspeed: 1500
   adswalkspeed: 1200
-  adsbloom: 50
+  adsbloom: 40
   adsaccuracyspeed: 15
   adssens: 27
   firerate: 0.6
-  bloom: 70
+  bloom: 80
   reloadtime: 1.5
   recoil: 10
   kickback: 1

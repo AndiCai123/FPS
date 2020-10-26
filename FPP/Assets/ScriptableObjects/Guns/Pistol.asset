@@ -19,6 +19,7 @@ MonoBehaviour:
   recoilmultiplier: 0
   recoilrecovery: 0
   burst: 0
+  pellets: 0
   clipsize: 12
   ammo: 960
   walkspeed: 2500
@@ -29,7 +30,7 @@ MonoBehaviour:
   firerate: 0.1
   bloom: 30
   reloadtime: 1
-  recoil: 5
+  recoil: 2
   kickback: 0.2
   aimSpeed: 20
   mainFOV: 0.9
